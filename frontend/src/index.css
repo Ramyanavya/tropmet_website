@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    @apply antialiased;
+    background-color: #f0f5fc;
+    color: #1e293b;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    color: #0b2d5e;
+  }
+  p { color: #475569; }
+}
+
+@layer components {
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-sans font-semibold text-sm
+           transition-all duration-150 shadow-md;
+    background-color: #0b2d5e;
+    color: #ffffff;
+  }
+  .btn-primary:hover { background-color: #0e3d7a; }
+  .btn-primary:active { background-color: #071e40; }
+
+  .btn-amber {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-sans font-bold text-sm
+           transition-all duration-150 shadow-md;
+    background-color: #f59e0b;
+    color: #021b3e;
+  }
+  .btn-amber:hover { background-color: #fbbf24; }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-sans font-semibold text-sm
+           border-2 transition-all duration-150;
+    border-color: #0b2d5e;
+    color: #0b2d5e;
+  }
+  .btn-outline:hover {
+    background-color: #0b2d5e;
+    color: #ffffff;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-white rounded-xl border shadow-sm hover:shadow-md transition-shadow duration-200;
+    border-color: #c8d9f0;
+  }
+
+  /* ── Section labels ── */
+  .section-label {
+    @apply font-sans text-xs font-bold uppercase tracking-[.18em];
+    color: #f59e0b;
+  }
+  .section-title {
+    @apply font-display text-3xl font-bold leading-snug;
+    color: #0b2d5e;
+  }
+
+  /* ── Form fields ── */
+  .field {
+    @apply w-full px-3.5 py-2.5 border rounded-lg text-sm bg-white
+           focus:outline-none focus:ring-2 transition;
+    border-color: #b8ccec;
+    color: #1e293b;
+    focus-ring-color: rgba(26, 95, 168, 0.3);
+  }
+  .field:focus { border-color: #1a5fa8; }
+
+  .label, .field-label {
+    @apply block text-xs font-bold uppercase tracking-wide mb-1.5;
+    color: #0b2d5e;
+  }
+
+  /* ── Divider ── */
+  .rule { @apply border-0 border-t; border-color: #c8d9f0; }
+  .rule-amber { @apply border-0 border-t-2; border-color: #f59e0b; }
+
+  /* ── Countdown box ── */
+  .cd-box {
+    @apply flex flex-col items-center justify-center px-4 py-3 rounded-xl min-w-[72px] tabular-nums;
+    background-color: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #ffffff;
+  }
+}
+
+/* Marquee */
+.marquee-track { animation: marquee 40s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #e8f0fc; }
+::-webkit-scrollbar-thumb { background: #0b2d5e; border-radius: 2px; }
+
+/* Ensure text on dark backgrounds is always white */
+.bg-\[#021b3e\] p, .bg-\[#0b2d5e\] p,
+.bg-gradient-to-br p, .bg-gradient-to-r p {
+  color: inherit;
+}
